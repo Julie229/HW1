@@ -1,6 +1,7 @@
 ## import packages
 import streamlit as st
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
@@ -270,7 +271,7 @@ if run_models:
 
             ## if logistic regression, use coefficients for model importance
             if hasattr(model, "coef_"):
-                importances = model.coef_[0].abs()
+                importances = np.abs(model.coef_[0])
                 ## create df and sort
                 feature_importance = pd.DataFrame({'Feature': X.columns, 'Coefficient': importances}).sort_values('Coefficient', ascending=False) 
                 ## get only top 5 features
