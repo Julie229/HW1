@@ -329,10 +329,9 @@ if run_models:
             st.subheader(f"Top 5 Features for {name}")
             st.dataframe(features)
 
-'''
-Sources:
-https://docs.streamlit.io/get-started
-https://www.geeksforgeeks.org/understanding-feature-importance-in-logistic-regression-models/#1-coefficient-magnitude
-https://www.geeksforgeeks.org/feature-importance-with-random-forests/
-https://www.w3schools.com/python/python_ml_confusion_matrix.asp
-'''
+
+## Sources:
+# https://docs.streamlit.io/get-started
+# https://www.geeksforgeeks.org/understanding-feature-importance-in-logistic-regression-models/#1-coefficient-magnitude
+# https://www.geeksforgeeks.org/feature-importance-with-random-forests/
+# https://www.w3schools.com/python/python_ml_confusion_matrix.asp
