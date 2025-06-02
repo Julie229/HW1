@@ -270,13 +270,10 @@ if run_models:
 
             ## if logistic regression, use coefficients for model importance
             if hasattr(model, "coef_"):
-                importances = model.coef_[0]
-                ## create df
-                feature_importance = pd.DataFrame({'Feature': X.columns, 'Coefficient': importances})
-                ## absolute value since ranking by magnitude
-                feature_importance['Coefficient'] = feature_importance['Coefficient'].abs()
-                ## sort and get only top 5 features
-                sort_importance = feature_importance.sort_values('Coefficient', ascending=False) 
+                importances = model.coef_[0].abs()
+                ## create df and sort
+                feature_importance = pd.DataFrame({'Feature': X.columns, 'Coefficient': importances}).sort_values('Coefficient', ascending=False) 
+                ## get only top 5 features
                 top_features = feature_importance.head(5)
                 ## add to dictionary
                 model_top_features[name] = top_features
